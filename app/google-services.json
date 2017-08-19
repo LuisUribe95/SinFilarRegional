@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "1020203984764",
+    "firebase_url": "https://sin-fila-regional.firebaseio.com",
+    "project_id": "sin-fila-regional",
+    "storage_bucket": "sin-fila-regional.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020203984764:android:27f9f28af547ca0a",
+        "android_client_info": {
+          "package_name": "com.example.luisfrancisco.sinfilarregional"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1020203984764-cppc02ipmlsogs245e5bcq6j4ajd2e3s.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.luisfrancisco.sinfilarregional",
+            "certificate_hash": "a86f72c98ad004abe8baa188ab1ec4238e4f8b8c"
+          }
+        },
+        {
+          "client_id": "1020203984764-msa6992bunivpcci11sruuod4onbbd2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdwLezEN1PFhMnNJNt32TA_ztGXpYCOyE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1020203984764-msa6992bunivpcci11sruuod4onbbd2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

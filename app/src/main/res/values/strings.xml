@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Inicio de Sesion</string>
+    <string name="title_activity_localizacion">Localizacion</string>
+    <string name="facebook_app_id">1817269998301773</string>
+    <string name="cancel_login">Error al Ingresar</string>
+    <string name="error_login">Error</string>
+</resources>
