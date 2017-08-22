@@ -9,26 +9,22 @@
 
 
   <string-array name="provincias">
-      <item>Albaete</item>
-      <item>Alava</item>
+      <item>Coahuila</item>
+      <item>Guanjuato</item>
   </string-array>
 
 
 
     <string-array name="localidades_albacete">
-        <item>Abengibre</item>
-        <item>Alatos</item>
-        <item>Albacete</item>
-        <item>Albatana</item>
-        <item>Alborea</item>
+        <item>Saltillo</item>
+        <item>Torreon</item>
+
     </string-array>
 
     <string-array name="localidades_alava">
-        <item>Amurrio</item>
-        <item>Aramaio</item>
-        <item>Asparrena</item>
-        <item>Ayala</item>
-        <item>Bernedo</item>
+        <item>Guanjuato</item>
+        <item>Leon</item>
+
     </string-array>
 
 </resources>
