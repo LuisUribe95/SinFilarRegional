@@ -21,8 +21,9 @@
             </intent-filter>
         </activity>
         <activity android:name=".CorreoElectronico"></activity>
+        <activity android:name=".Main2Activity"></activity>
     </application>
-    <activity android:name=".Main2Activity"></activity>
+
 
 
 </manifest>
