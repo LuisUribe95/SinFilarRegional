@@ -52,7 +52,7 @@ public class CorreoElectronico extends AppCompatActivity {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if(user != null)
             {
-                startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
+                //startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
             }else
             {
 
