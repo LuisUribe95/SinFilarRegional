@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -49,81 +48,75 @@ public class CorreoElectronico extends AppCompatActivity {
 
 
         mAuth = FirebaseAuth.getInstance();
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if(user != null)
-                {
-                    startActivity(new Intent(CorreoElectronico.this, Localizacion.class));
-                }else
-                {
+        mAuthListener = firebaseAuth -> {
+            FirebaseUser user = firebaseAuth.getCurrentUser();
+            if(user != null)
+            {
+                startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
+            }else
+            {
 
-                }
             }
         };
 
         //click listeners
-        createUser.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        createUser.setOnClickListener(v -> {
 
 
 
-                userEmail = email.getText().toString().trim();
-                userPass = password.getText().toString().trim();
 
-                if(!TextUtils.isEmpty(userEmail) && !TextUtils.isEmpty(userPass))
-                {
-                    mAuth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful())
-                            {
-
-                                Toast.makeText(CorreoElectronico.this, "Usuario Creado", Toast.LENGTH_SHORT).show();
-                               // startActivity(new Intent(CorreoElectronico.this,Localizacion.class));
-                            }
-                            else
-                            {
-                                Toast.makeText(CorreoElectronico.this, "Error al Crear el Usuario", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-
-
+            userEmail = email.getText().toString().trim();
+            userPass = password.getText().toString().trim();
+            if(userEmail.equals("") || userPass.equals(""))
+            {
+                Toast.makeText(CorreoElectronico.this, "Se dejaron campos vacios", Toast.LENGTH_SHORT).show();
             }
+
+            if(!TextUtils.isEmpty(userEmail) && !TextUtils.isEmpty(userPass))
+            {
+                mAuth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        // startActivity(new Intent(CorreoElectronico.this,Localizacion.class));
+                        if(task.isSuccessful())
+                            Toast.makeText(CorreoElectronico.this, "Usuario Creado", Toast.LENGTH_SHORT).show();
+                        else
+                        {
+                            Toast.makeText(CorreoElectronico.this, "Error al Crear el Usuario", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+
+
         });
 
         //move to login
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //startActivity(new Intent(CorreoElectronico.this,Localizacion.class));
+        login.setOnClickListener(v -> {
+            //startActivity(new Intent(CorreoElectronico.this,Localizacion.class));
 
-                userEmail = email.getText().toString().trim();
-                userPass = password.getText().toString().trim();
+            userEmail = email.getText().toString().trim();
+            userPass = password.getText().toString().trim();
 
-                if(!TextUtils.isEmpty(userEmail) && !TextUtils.isEmpty(userPass))
-                {
-                    mAuth.signInWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-                            if(task.isSuccessful())
-                            {
-                                startActivity(new Intent(CorreoElectronico.this,Localizacion.class));
-                                Toast.makeText(CorreoElectronico.this, "Bienvenido", Toast.LENGTH_SHORT).show();
-                            }
-                            else
-                            {
-                                Toast.makeText(CorreoElectronico.this, "Fallo al Ingresar", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-                    });
-                }
-
+            if(userEmail.equals("")||userPass.equals(""))
+            {
+                Toast.makeText(CorreoElectronico.this, "Existen Campos Vacios", Toast.LENGTH_SHORT).show();
             }
+
+
+            if(!TextUtils.isEmpty(userEmail) && !TextUtils.isEmpty(userPass))
+                mAuth.signInWithEmailAndPassword(userEmail, userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
+                            Toast.makeText(CorreoElectronico.this, "Bienvenido", Toast.LENGTH_SHORT).show();
+                        } else {
+                            Toast.makeText(CorreoElectronico.this, "Fallo al Ingresar", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+
         });
 
 

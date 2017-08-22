@@ -9,13 +9,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
-import com.facebook.login.LoginResult;
-import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.auth.api.Auth;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
@@ -30,8 +23,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-import java.util.Arrays;
-
 public class MainActivity extends AppCompatActivity  {
 
     FirebaseAuth mAuth;
@@ -40,8 +31,6 @@ public class MainActivity extends AppCompatActivity  {
 
     GoogleApiClient mGoogleApiClient;
     FirebaseAuth.AuthStateListener mAuthListener;
-    private CallbackManager callbackManager;
-    private LoginButton btnFace;
 
 
 
@@ -49,36 +38,16 @@ public class MainActivity extends AppCompatActivity  {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FacebookSdk.sdkInitialize(getApplicationContext());
-        AppEventsLogger.activateApp(this);
+
 
 
         Button btnCorreo = (Button)findViewById(R.id.button3);
         Button btnCuenta = (Button)findViewById(R.id.button4);
         Button btnGoogle = (Button) findViewById(R.id.btn_Google);
        // Button btnFace = (Button)findViewById(R.id.button_Face);
-        btnFace = (LoginButton)findViewById(R.id.button_Face);
-        btnFace.setReadPermissions(Arrays.asList("email"));
+       ;
         mAuth = FirebaseAuth.getInstance();
-        callbackManager = CallbackManager.Factory.create();
-        btnFace.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                goMainScreen();
-            }
 
-            @Override
-            public void onCancel() {
-                Toast.makeText(MainActivity.this, R.string.cancel_login, Toast.LENGTH_SHORT).show();
-
-
-            }
-
-            @Override
-            public void onError(FacebookException error) {
-                Toast.makeText(MainActivity.this, R.string.error_login, Toast.LENGTH_SHORT).show();
-            }
-        });
 
 
 
@@ -98,7 +67,7 @@ public class MainActivity extends AppCompatActivity  {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null)
                 {
-                    startActivity(new Intent(MainActivity.this,Localizacion.class));
+                    startActivity(new Intent(MainActivity.this,Main2Activity.class));
 
                 }
             }
@@ -143,7 +112,7 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     private void goMainScreen() {
-        Intent in = new Intent(MainActivity.this,Localizacion.class);
+        Intent in = new Intent(MainActivity.this,Main2Activity.class);
         in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(in);
     }
@@ -164,7 +133,7 @@ public class MainActivity extends AppCompatActivity  {
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
         super.onActivityResult(requestCode,resultCode,data);
-        callbackManager.onActivityResult(requestCode,resultCode,data);
+
 
 
         if(requestCode == RC_SIGN_IN)
