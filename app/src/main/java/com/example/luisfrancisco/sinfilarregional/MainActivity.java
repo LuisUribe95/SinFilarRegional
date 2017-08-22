@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity  {
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() != null)
                 {
-                    startActivity(new Intent(MainActivity.this,Main2Activity.class));
+                   // startActivity(new Intent(MainActivity.this,Main2Activity.class));
 
                 }
             }
@@ -112,7 +112,8 @@ public class MainActivity extends AppCompatActivity  {
     }
 
     private void goMainScreen() {
-        Intent in = new Intent(MainActivity.this,Main2Activity.class);
+       //Intent in = new Intent(MainActivity.this,Main2Activity.class);
+        Intent in = new Intent();
         in.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(in);
     }
