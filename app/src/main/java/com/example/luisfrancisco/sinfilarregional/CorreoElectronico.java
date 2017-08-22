@@ -77,7 +77,7 @@ public class CorreoElectronico extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                         startActivity(new Intent(CorreoElectronico.this,Main2Activity.class));
+                        // startActivity(new Intent(CorreoElectronico.this,Main2Activity.class));
                         if(task.isSuccessful())
                             Toast.makeText(CorreoElectronico.this, "Usuario Creado", Toast.LENGTH_SHORT).show();
                         else
