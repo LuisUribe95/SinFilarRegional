@@ -1,5 +1,6 @@
 package com.example.luisfrancisco.sinfilarregional;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -51,7 +52,7 @@ public class CorreoElectronico extends AppCompatActivity {
             FirebaseUser user = firebaseAuth.getCurrentUser();
             if(user != null)
             {
-               // startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
+                startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
             }else
             {
 
@@ -76,7 +77,7 @@ public class CorreoElectronico extends AppCompatActivity {
                 mAuth.createUserWithEmailAndPassword(userEmail,userPass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        // startActivity(new Intent(CorreoElectronico.this,Localizacion.class));
+                         startActivity(new Intent(CorreoElectronico.this,Main2Activity.class));
                         if(task.isSuccessful())
                             Toast.makeText(CorreoElectronico.this, "Usuario Creado", Toast.LENGTH_SHORT).show();
                         else
@@ -92,7 +93,7 @@ public class CorreoElectronico extends AppCompatActivity {
 
         //move to login
         login.setOnClickListener(v -> {
-            //startActivity(new Intent(CorreoElectronico.this,Localizacion.class));
+            startActivity(new Intent(CorreoElectronico.this,Main2Activity.class));
 
             userEmail = email.getText().toString().trim();
             userPass = password.getText().toString().trim();
@@ -108,7 +109,7 @@ public class CorreoElectronico extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                            //startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
+                            startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
                             Toast.makeText(CorreoElectronico.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(CorreoElectronico.this, "Fallo al Ingresar", Toast.LENGTH_SHORT).show();
