@@ -108,7 +108,7 @@ public class CorreoElectronico extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-                           // startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
+                            //startActivity(new Intent(CorreoElectronico.this, Main2Activity.class));
                             Toast.makeText(CorreoElectronico.this, "Bienvenido", Toast.LENGTH_SHORT).show();
                         } else {
                             Toast.makeText(CorreoElectronico.this, "Fallo al Ingresar", Toast.LENGTH_SHORT).show();
