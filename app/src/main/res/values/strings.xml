@@ -13,5 +13,7 @@
     <string name="localidad_prompt">Elija una localidad</string>
     <string name="comprobar">Comprobar</string>
     <string name="message">Ha seleccionado %1$s (%2$s)</string>
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
 
 </resources>
